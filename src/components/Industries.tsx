@@ -25,7 +25,6 @@ export default function Industries() {
             id="industries-banner"
             alt="さまざまな業界(金融/小売/製造/ヘルスケア/物流/教育)を象徴するワイドビジュアル"
             ratio="21 / 9"
-            src="/images/industries-banner.jpg"
           />
         </div>
         <ul className="industry-list">

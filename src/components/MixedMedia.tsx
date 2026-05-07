@@ -10,7 +10,6 @@ export default function MixedMedia() {
             id="about-team"
             alt="ストークのチーム/オフィスの様子(About用ビジュアル)"
             ratio="4 / 3"
-            src="/images/about-team.jpg"
           />
         </div>
         <div className="cta-band__copy">

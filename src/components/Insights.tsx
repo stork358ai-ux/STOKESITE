@@ -55,7 +55,7 @@ export default function Insights() {
             <li key={p.id} className="insight">
               <a href="#" className="insight__link">
                 <div className="insight__thumb">
-                  <ImageSlot id={p.slot} alt={p.alt} ratio="16 / 9" src={`/images/${p.slot}.jpg`} />
+                  <ImageSlot id={p.slot} alt={p.alt} ratio="16 / 9" />
                 </div>
                 <div className="insight__body">
                   <div className="insight__meta">
