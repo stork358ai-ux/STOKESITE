@@ -36,7 +36,6 @@ export default function Footer() {
               <li><a href="tel:03-5928-9115">TEL: 03-5928-9115</a></li>
               <li>東京都新宿区高田馬場1-27-1</li>
               <li>ファインテックビル5階</li>
-              <li><Link href="/contact">お問い合わせフォーム</Link></li>
             </ul>
           </div>
         </div>
