@@ -24,14 +24,14 @@ RewriteRule ^sv_ai\.php$ /services/ai-development/ [R=301,L]
 RewriteRule ^sv_consulting\.php$ /services/ai-consulting/ [R=301,L]
 RewriteRule ^sv_marketing\.php$ /services/web-marketing/ [R=301,L]
 RewriteRule ^sv_web\.php$ /services/web-marketing/ [R=301,L]
-RewriteRule ^sv_.*\.php$ /#services [R=301,L]
+RewriteRule ^sv_.*\.php$ /#services [R=301,L,NE]
 
 # 一般ページ系
-RewriteRule ^service\.php$ /#services [R=301,L]
-RewriteRule ^services\.php$ /#services [R=301,L]
+RewriteRule ^service\.php$ /#services [R=301,L,NE]
+RewriteRule ^services\.php$ /#services [R=301,L,NE]
 RewriteRule ^contact\.php$ /contact/ [R=301,L]
-RewriteRule ^company\.php$ /#company [R=301,L]
-RewriteRule ^about\.php$ /#company [R=301,L]
+RewriteRule ^company\.php$ /#company [R=301,L,NE]
+RewriteRule ^about\.php$ /#company [R=301,L,NE]
 RewriteRule ^recruit\.php$ / [R=301,L]
 RewriteRule ^index\.php$ / [R=301,L]
 
@@ -42,7 +42,7 @@ RewriteRule ^system/?$ /services/system-development/ [R=301,L]
 RewriteRule ^ai/?$ /services/ai-development/ [R=301,L]
 RewriteRule ^marketing/?$ /services/web-marketing/ [R=301,L]
 RewriteRule ^recruit/?$ / [R=301,L]
-RewriteRule ^company/?$ /#company [R=301,L]
+RewriteRule ^company/?$ /#company [R=301,L,NE]
 
 # ----- カスタム404 -----
 ErrorDocument 404 /404.html
