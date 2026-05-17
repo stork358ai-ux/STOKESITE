@@ -60,8 +60,8 @@ export default function ValueHeader() {
             <span className="metric__label">継続契約率</span>
           </li>
           <li>
-            <span className="metric__num">38<small>社</small></span>
-            <span className="metric__label">上場企業の支援実績</span>
+            <span className="metric__num">5000<small>件</small></span>
+            <span className="metric__label">企業の支援実績累計</span>
           </li>
         </ul>
       </div>
