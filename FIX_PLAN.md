@@ -12,8 +12,48 @@
 | 2026-05-17 19:48 | Phase 1ファイル配置完了（.htaccess + sitemap.xml + robots.txt） |
 | 2026-05-17 19:50 | 旧PHP URL → 新URL の301リダイレクト動作確認OK |
 | 2026-05-17 20:10 | Xserverサーバーパネルから無料独自SSL申請（Let's Encrypt） |
-| 2026-05-17 20:15 | SSL反映確認 → **まだ反映されていない**（Xserverワイルドカード証明書のまま） |
-| - | **次：SSL反映後 → Phase2 .htaccess（HTTPS強制）→ Google Search Console** |
+| 2026-05-17 20:15 | SSL反映確認 → まだ反映されていない（Xserverワイルドカード証明書のまま） |
+| 2026-05-17 20:40 | SSL反映完了確認（CN=stork.jp, Let's Encrypt 発行） |
+| 2026-05-17 20:45 | Phase 2 .htaccess デプロイ（HTTPS強制＋www→非www追加） |
+| 2026-05-17 20:50 | HTTP→HTTPS リダイレクトは動作確認OK |
+| 2026-05-17 20:55 | しかしHTTPS側のサブパス全部が「Xserver無効URL/反映待ち」ページに → nginx設定反映中、バックグラウンド監視起動 |
+| 2026-05-17 21:00 | **Xserver nginx反映完了** ✅ |
+| 2026-05-17 21:01 | **全18件のURL検証パス** ✅（HTTPS全ページ200 / 旧PHP→新URL 301 / www→非www 301 / HTTP→HTTPS 301 / CSS 27126 bytes読み込みOK） |
+| - | **次：ブラウザ確認 → Google Search Console** |
+
+### 最終検証結果
+
+```
+✅ 200 https://stork.jp/                              HTTPS homepage
+✅ 200 https://stork.jp/sitemap.xml                   sitemap.xml
+✅ 200 https://stork.jp/robots.txt                    robots.txt
+✅ 200 https://stork.jp/contact/                      contact page
+✅ 200 https://stork.jp/services/ai-consulting/       全6サービスページ
+✅ 200 https://stork.jp/services/ai-development/
+✅ 200 https://stork.jp/services/ai-improvement/
+✅ 200 https://stork.jp/services/crm-hosting/
+✅ 200 https://stork.jp/services/system-development/
+✅ 200 https://stork.jp/services/web-marketing/
+✅ 301 http://stork.jp/             → https://stork.jp/
+✅ 301 http://www.stork.jp/         → https://www.stork.jp/ → https://stork.jp/
+✅ 301 旧 sv_system.php  → /services/system-development/
+✅ 301 旧 sv_hosting.php → /services/crm-hosting/
+✅ 301 旧 sv_crm.php     → /services/crm-hosting/
+✅ 301 旧 sv_ai.php      → /services/ai-development/
+✅ 301 旧 contact.php    → /contact/
+✅ 301 旧 index.php      → /
+✅ CSS 27126 bytes 配信OK（_next/static/css/12f0c764f592bbdc.css）
+```
+
+### Xserverの「無効なURLです・反映待ち」エラー
+
+SSL有効化直後にHTTPS側で発生する仕様。Xserverのnginxが新しいSSL設定を読み込むまで一時的にサブパスが`無効なURL`扱いになる。10〜60分で自動解消。
+ファイル自体は問題なく存在し、HTTPでは正常アクセス可能。
+
+### 監視コマンド（バックグラウンド実行中）
+```bash
+until curl -s "https://stork.jp/sitemap.xml" | grep -q "urlset"; do sleep 30; done
+```
 
 ## 現状把握（2026-05-17時点）
 

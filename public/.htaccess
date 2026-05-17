@@ -1,20 +1,19 @@
 # ===========================================
-# STORK.jp .htaccess  (PHASE 1: SSL設定前)
+# STORK.jp .htaccess  (PHASE 2: SSL設定完了後)
 # ===========================================
-# SSL設定完了後、HTTPS強制ブロックを有効化すること（FIX_PLAN.md 参照）
 
 Options -Indexes
 DirectoryIndex index.html
 
 RewriteEngine On
 
-# ----- PHASE 2で有効化：HTTPS強制 -----
-# RewriteCond %{HTTPS} !=on
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# ----- HTTPS強制 -----
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 
-# ----- PHASE 2で有効化：www → 非www -----
-# RewriteCond %{HTTP_HOST} ^www\.stork\.jp$ [NC]
-# RewriteRule ^(.*)$ https://stork.jp/$1 [R=301,L]
+# ----- www → 非www に統一 -----
+RewriteCond %{HTTP_HOST} ^www\.stork\.jp$ [NC]
+RewriteRule ^(.*)$ https://stork.jp/$1 [R=301,L]
 
 # ----- 旧PHPサイトURL → 新サイトURL（301） -----
 # サービス系
