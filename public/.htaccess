@@ -1,0 +1,66 @@
+# ===========================================
+# STORK.jp .htaccess  (PHASE 1: SSL設定前)
+# ===========================================
+# SSL設定完了後、HTTPS強制ブロックを有効化すること（FIX_PLAN.md 参照）
+
+Options -Indexes
+DirectoryIndex index.html
+
+RewriteEngine On
+
+# ----- PHASE 2で有効化：HTTPS強制 -----
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# ----- PHASE 2で有効化：www → 非www -----
+# RewriteCond %{HTTP_HOST} ^www\.stork\.jp$ [NC]
+# RewriteRule ^(.*)$ https://stork.jp/$1 [R=301,L]
+
+# ----- 旧PHPサイトURL → 新サイトURL（301） -----
+# サービス系
+RewriteRule ^sv_system\.php$ /services/system-development/ [R=301,L]
+RewriteRule ^sv_hosting\.php$ /services/crm-hosting/ [R=301,L]
+RewriteRule ^sv_crm\.php$ /services/crm-hosting/ [R=301,L]
+RewriteRule ^sv_ai\.php$ /services/ai-development/ [R=301,L]
+RewriteRule ^sv_consulting\.php$ /services/ai-consulting/ [R=301,L]
+RewriteRule ^sv_marketing\.php$ /services/web-marketing/ [R=301,L]
+RewriteRule ^sv_web\.php$ /services/web-marketing/ [R=301,L]
+RewriteRule ^sv_.*\.php$ /#services [R=301,L]
+
+# 一般ページ系
+RewriteRule ^service\.php$ /#services [R=301,L]
+RewriteRule ^services\.php$ /#services [R=301,L]
+RewriteRule ^contact\.php$ /contact/ [R=301,L]
+RewriteRule ^company\.php$ /#company [R=301,L]
+RewriteRule ^about\.php$ /#company [R=301,L]
+RewriteRule ^recruit\.php$ / [R=301,L]
+RewriteRule ^index\.php$ / [R=301,L]
+
+# 旧ディレクトリ型URL
+RewriteRule ^hosting/?$ /services/crm-hosting/ [R=301,L]
+RewriteRule ^crm/?$ /services/crm-hosting/ [R=301,L]
+RewriteRule ^system/?$ /services/system-development/ [R=301,L]
+RewriteRule ^ai/?$ /services/ai-development/ [R=301,L]
+RewriteRule ^marketing/?$ /services/web-marketing/ [R=301,L]
+RewriteRule ^recruit/?$ / [R=301,L]
+RewriteRule ^company/?$ /#company [R=301,L]
+
+# ----- カスタム404 -----
+ErrorDocument 404 /404.html
+
+# ----- ブラウザキャッシュ最適化 -----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# ----- gzip圧縮 -----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json text/xml
+</IfModule>
