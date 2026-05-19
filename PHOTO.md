@@ -1,7 +1,10 @@
 # STORK.jp 画像生成プロンプト一覧
 
 作成日：2026-05-19
-対象：トップページ (`/`) の全 `<ImageSlot>` 計 **10枚**
+最終更新：2026-05-20（ceo-portrait をクライアント要望で削除）
+対象：トップページ (`/`) の全 `<ImageSlot>` 計 **9枚**
+
+> ⚠️ **`ceo-portrait` は使用禁止**（クライアント指示）。男性ポートレート画像は本サイトでは使用しない。
 
 画像生成AI（Gemini / Imagen / Midjourney / DALL·E など）へそのまま渡せるプロンプト。
 
@@ -29,7 +32,7 @@
 |---|---|---|---|---|---|
 | 1 | `hero-main` | Hero（最上部・右） | 4 : 5 | 1200 × 1500 px | `public/images/hero-main.jpg` |
 | 2 | `industries-banner` | Industries（業界）バナー | 21 : 9 | 2400 × 1029 px | `public/images/industries-banner.jpg` |
-| 3 | `ceo-portrait` | ValueHeader（暗背景セクション） | 16 : 9 | 1920 × 1080 px | `public/images/ceo-portrait.jpg` |
+| ~~3~~ | ~~`ceo-portrait`~~ | ~~削除済み（クライアント要望）~~ | — | — | — |
 | 4 | `process-visual` | Process（導入プロセス）バナー | 21 : 9 | 2400 × 1029 px | `public/images/process-visual.jpg` |
 | 5 | `insight-1` | Insights記事1（生成AIの落とし穴） | 16 : 9 | 1280 × 720 px | `public/images/insight-1.jpg` |
 | 6 | `insight-2` | Insights記事2（RAGアーキ） | 16 : 9 | 1280 × 720 px | `public/images/insight-2.jpg` |
@@ -220,7 +223,6 @@ Editorial architectural photography, no text, no logos, no people.
 
 - [ ] `hero-main` (4:5, 1200×1500)
 - [ ] `industries-banner` (21:9, 2400×1029)
-- [ ] `ceo-portrait` (16:9, 1920×1080, 暗背景)
 - [ ] `process-visual` (21:9, 2400×1029)
 - [ ] `insight-1` (16:9, 1280×720)
 - [ ] `insight-2` (16:9, 1280×720)
@@ -229,7 +231,7 @@ Editorial architectural photography, no text, no logos, no people.
 - [ ] `about-team` (4:3, 1600×1200)
 - [ ] `company-office` (16:7, 2240×980)
 
-**合計 10 枚**
+**合計 9 枚**
 
 ---
 

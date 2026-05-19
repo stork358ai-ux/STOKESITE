@@ -25,6 +25,7 @@ export default function Process() {
             id="process-visual"
             alt="プロジェクトの進行を象徴するチームコラボレーション/ホワイトボードのワイドビジュアル"
             ratio="21 / 9"
+            src="/images/process-visual.jpg"
           />
         </div>
         <ol className="process-list">

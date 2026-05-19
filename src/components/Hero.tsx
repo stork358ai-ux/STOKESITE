@@ -23,6 +23,7 @@ export default function Hero() {
             id="hero-main"
             alt="ヒーロー画像 / 抽象的なテクノロジー・データのビジュアル"
             ratio="4 / 5"
+            src="/images/hero-main.jpg"
           />
         </div>
       </div>

@@ -13,6 +13,7 @@ export default function CompanySection() {
             id="company-office"
             alt="ストーク本社オフィス(高田馬場)外観もしくは内観"
             ratio="16 / 7"
+            src="/images/company-office.jpg"
           />
         </div>
         <table className="info-table">

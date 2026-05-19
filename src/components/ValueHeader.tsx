@@ -1,5 +1,3 @@
-import ImageSlot from './ImageSlot'
-
 export default function ValueHeader() {
   return (
     <section id="ai" className="value-header">
@@ -10,15 +8,6 @@ export default function ValueHeader() {
             事業課題から逆算した<br />
             実装で、成果に責任を持つ。
           </h2>
-        </div>
-
-        <div className="value-header__portrait">
-          <ImageSlot
-            id="ceo-portrait"
-            alt="代表 藤原憲市のポートレート(暗背景・モノクロ調)"
-            ratio="16 / 9"
-            className="img-slot--dark"
-          />
         </div>
 
         <div className="value-header__body">

@@ -17,7 +17,7 @@ export default function Industries() {
           <p className="section__eyebrow">Industries</p>
           <h2 className="section__title">業界別ソリューション</h2>
           <p className="section__lead">
-            業界特有の課題に対し、ストークは20年以上の実績と最新のAI技術で最適解を提供します。金融からヘルスケア、製造から教育まで、幅広い領域でDXを推進します。
+            業界特有の課題に対し、ストークは長年培った経験と最新のAI技術で最適解を提供します。金融からヘルスケア、製造から教育まで、幅広い領域でDXを推進します。
           </p>
         </header>
         <div className="industries-banner">
@@ -25,6 +25,7 @@ export default function Industries() {
             id="industries-banner"
             alt="さまざまな業界(金融/小売/製造/ヘルスケア/物流/教育)を象徴するワイドビジュアル"
             ratio="21 / 9"
+            src="/images/industries-banner.jpg"
           />
         </div>
         <ul className="industry-list">

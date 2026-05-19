@@ -53,9 +53,9 @@ export default function Insights() {
         <ul className="insight-grid">
           {posts.map((p) => (
             <li key={p.id} className="insight">
-              <a href="#" className="insight__link">
+              <div className="insight__link">
                 <div className="insight__thumb">
-                  <ImageSlot id={p.slot} alt={p.alt} ratio="16 / 9" />
+                  <ImageSlot id={p.slot} alt={p.alt} ratio="16 / 9" src={`/images/${p.slot}.jpg`} />
                 </div>
                 <div className="insight__body">
                   <div className="insight__meta">
@@ -64,9 +64,8 @@ export default function Insights() {
                   </div>
                   <h3 className="insight__title">{p.title}</h3>
                   <p className="insight__excerpt">{p.excerpt}</p>
-                  <span className="insight__cta">続きを読む<span aria-hidden>→</span></span>
                 </div>
-              </a>
+              </div>
             </li>
           ))}
         </ul>
